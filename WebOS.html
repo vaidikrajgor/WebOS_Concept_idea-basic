@@ -1,0 +1,127 @@
+<html>
+<head>
+  <title>WebOS</title>
+  <style>
+    * {
+      font-family: cursive;
+    }
+    body {
+      margin: 0;
+      font-family: Arial;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('—Pngtree—abstract geometric wood wall art_16436601.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .search {
+      padding: 20px;
+      text-align: center;
+    }
+    .search input {
+      width: 80%;
+      max-width: 700px;
+      padding: 15px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      font-size: 18px;
+    }
+    .icons {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .icon {
+      width: 105px;
+      margin: 40px;
+      text-align: center;
+      cursor: pointer;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .icon-effect {
+      font-size: 50px;
+      transition: transform 0.2s ease;
+    }
+    .icon:hover .icon-effect {
+      transform: scale(1.1);
+    }
+    .icon-name {
+      font-size: 16px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+      font-family: Arial, sans-serif;
+    }
+    .dock {
+      background: rgb(7, 0, 43);
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <div class="search">
+    <input type="text" placeholder="Search on WebOS ...">
+  </div>
+  <div class="icons">
+    <div class="icon">
+      <div class="icon-effect">🌐</div>
+      <div class="icon-name">WebBrowser</div>
+    </div>
+    <div class="icon">
+      <div class="icon-effect">📁</div>
+      <div class="icon-name">Files</div>
+    </div>
+    <div class="icon">
+      <div class="icon-effect">📝</div>
+      <div class="icon-name">Notes</div>
+    </div>
+    <div class="icon">
+      <div class="icon-effect">🖼️</div>
+      <div class="icon-name">Photos</div>
+    </div>
+    <div class="icon">
+      <div class="icon-effect">💻</div>
+      <div class="icon-name">Terminal</div>
+    </div>
+    <div class="icon">
+      <div class="icon-effect">⚙️</div>
+      <div class="icon-name">Settings</div>
+    </div>
+    <div class="icon">
+      <div class="icon-effect">ℹ️</div>
+      <div class="icon-name">About</div>
+    </div>
+  </div>
+  <div class="dock">
+    <div>Menu</div>
+    <div id="time"></div>
+  </div>
+  <script>
+    document.querySelectorAll(".icon").forEach(i => {
+      i.onclick = () => alert(i.querySelector('.icon-name').innerText + " is opening");
+    });
+    function clock() {
+      let now = new Date();
+      let h = now.getHours();
+      let m = now.getMinutes();
+      let ampm = h >= 12 ? 'P' : 'A';
+      h = h % 12;
+      h = h ? h : 12;
+      if (m < 10) m = "0" + m;
+      document.getElementById("time").innerText = h + ":" + m + " " + ampm;
+    }
+    setInterval(clock, 1000);
+    clock();
+  </script>
+</body>
+</html>
